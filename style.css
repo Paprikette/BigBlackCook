@@ -6,17 +6,35 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
+  padding-bottom: 20%;
+  /* [ON BIG SCREENS] */
+  /* Wrapper */
+  /* Hide Hamburger */
+  /* Horizontal Menu Items */
 }
-body header {
-  background: black;
-  color: white;
-  font-size: 0;
-  position: fixed;
+body #hamnav {
+  width: 100%;
+  background: #000;
+  /* Optional */
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
 }
-body header .header__logo {
+body #hamnav label, body #hamburger {
+  display: none;
+}
+body #hamitems {
+  display: flex;
+}
+body #hamitems a {
+  width: 20%;
+  /* 100% / 5 tabs = 20% */
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-family: "futura", sans-serif;
+}
+body #header__logo {
   display: inline-block;
   width: 10%;
   margin-right: 20%;
@@ -27,25 +45,7 @@ body header .header__logo {
   font-weight: 900px;
   vertical-align: middle;
 }
-body header .header__menu {
-  width: 70%;
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 0;
-}
-body header .header__menu-element {
-  display: inline-block;
-  width: 10%;
-  font-size: 18px;
-  text-align: center;
-  padding-right: 15%;
-  font-family: "futura", sans-serif;
-}
-body header a {
-  color: white;
-  text-decoration: none;
-}
-body header a:hover {
+body #hamitems a:hover {
   color: #df4d8a;
 }
 body .index {
@@ -79,7 +79,7 @@ body .article {
   width: 100%;
   height: 80%;
   font-family: "futura", sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
   color: black;
 }
 body .article img {
@@ -107,7 +107,7 @@ body .ou iframe {
 }
 body .ou .contact {
   font-family: "futura", sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
   color: black;
   padding-top: 5%;
   text-align: center;
@@ -119,14 +119,22 @@ body .fond {
   margin-top: 15%;
   margin-bottom: 7%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.3);
   width: 100%;
   height: 80%;
 }
-body .container {
+body .fond .image1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+body .fond .image1 img {
+  border: 5px solid white;
+  height: 20em;
+}
+body .fond .container {
   height: 100%;
   width: 40%;
   display: flex;
@@ -135,12 +143,12 @@ body .container {
   align-items: center;
   padding-bottom: 20%;
 }
-body .container p {
+body .fond .container p {
   font-family: "futura", sans-serif;
   font-size: 2em;
   color: white;
 }
-body .container .input {
+body .fond .container .input {
   width: 95%;
   height: 20%;
   padding: 0px 15px 0px 15px;
@@ -151,7 +159,7 @@ body .container .input {
   color: black;
   font-family: "futura", sans-serif;
 }
-body .container textarea {
+body .fond .container textarea {
   width: 95%;
   height: 70%;
   padding: 15px;
@@ -159,7 +167,7 @@ body .container textarea {
   outline: none;
   border: solid 2px #df4d8a;
 }
-body .container .submit {
+body .fond .container .submit {
   padding: 3%;
   color: black;
   font-family: "futura", sans-serif;
@@ -167,20 +175,26 @@ body .container .submit {
   cursor: pointer;
   border: solid 2px #df4d8a;
 }
-body .container .submit:hover {
+body .fond .container .submit:hover {
   background-color: #df4d8a;
 }
+body .fond .image2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+body .fond .image2 img {
+  border: 5px solid white;
+  height: 20em;
+}
 body #grid {
-  padding-top: 5%;
-  padding-left: 15%;
-  padding-right: 10%;
-  padding-bottom: 5%;
+  background-color: rgba(255, 255, 255, 0.6);
   display: grid;
-  height: 100%;
+  height: 60%;
   width: 75%;
   grid-template-columns: 35% 30% 35%;
-  grid-template-rows: 20% 80%;
-  grid-template-areas: "row1 row1 row1" "colonne1 colonne2 colonne3";
+  grid-template-rows: 100%;
+  grid-template-areas: "colonne1 colonne2 colonne3";
 }
 body .quoi {
   margin-top: 15%;
@@ -193,7 +207,7 @@ body .quoi {
   width: 100%;
   height: 80%;
   font-family: "futura", sans-serif;
-  font-size: 1em;
+  font-size: 1.2em;
   color: black;
 }
 body .quoi p {
@@ -206,7 +220,9 @@ body .quoi a {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 2%;
+  padding-top: 5%;
+  color: white;
+  text-decoration: none;
 }
 body li {
   list-style-type: none;
@@ -217,7 +233,7 @@ body .row1 {
 body .titres {
   background-color: black;
   color: white;
-  font-size: 20px;
+  font-size: 2em;
   text-align: center;
 }
 body .colonne1 {
@@ -231,11 +247,12 @@ body .colonne3 {
   border: 2px solid black;
 }
 body footer {
-  height: 10%;
+  margin-top: 10%;
+  height: 8%;
   width: 100%;
   bottom: 0;
   background-color: black;
-  position: absolute;
+  position: sticky;
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
@@ -251,11 +268,40 @@ body footer img {
 
 @media screen and (max-width: 767px) {
   body {
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    /* Show Hamburger Icon */
+    /* Break down menu items into vertical */
+    /* Toggle Show/Hide Menu */
+  }
+  body #hamnav {
+    position: absolute;
+  }
+  body #hamnav label {
+    display: inline-block;
+    color: white;
+    background: #df4d8a;
+    font-style: normal;
+    font-size: 1.2em;
+    padding: 10px;
+  }
+  body #hamitems a {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-top: 1px solid #333;
+    font-family: "futura", sans-serif;
+  }
+  body #hamitems {
+    display: none;
+  }
+  body #hamnav input:checked ~ #hamitems {
+    display: block;
   }
   body .index {
     background-color: inherit;
@@ -296,6 +342,7 @@ body footer img {
   }
   body .quoi #grid {
     display: block;
+    height: 73%;
   }
   body .ou {
     background-color: inherit;
@@ -312,10 +359,31 @@ body footer img {
     padding-top: 15%;
   }
   body .fond {
+    flex-direction: column;
+    justify-content: space-evenly;
     background-color: inherit;
+  }
+  body .fond .image1 {
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 25%;
+  }
+  body .fond .image1 img {
+    height: 80%;
+  }
+  body .fond .image2 {
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 25%;
+  }
+  body .fond .image2 img {
+    height: 80%;
   }
   body .fond .container {
     width: 70%;
+    padding-bottom: 55%;
   }
   body .fond .container p {
     font-size: 100%;
@@ -325,6 +393,7 @@ body footer img {
     bottom: 0;
     height: 5%;
     width: 100%;
+    background-color: inherit;
   }
 }
 

@@ -3,50 +3,100 @@
 
 body{
 @include body;
+padding-bottom: 20%;
 
 
 //header//
-header{
-  background: black;
-  color: white;
-  font-size: 0;
-  position: fixed;
+
+/* [ON BIG SCREENS] */
+/* Wrapper */
+#hamnav {
+  width: 100%;
+  background: #000;
+  /* Optional */
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-
-  .header__logo {
-    display: inline-block;
-    width: 10%;
-    margin-right: 20%;
-    font-family: "futura", sans-serif;
-    padding: 10px;
-    box-sizing: border-box;
-    font-size: 28px;
-    font-weight: 900px;
-    vertical-align: middle;
-  }
-
-  .header__menu {
-    width: 70%;
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 0;
-  }
-
-  .header__menu-element {
-    display: inline-block;
-    width: 10%;
-    font-size: 18px;
-    text-align: center;
-    padding-right: 15%;
-    font-family: "futura", sans-serif;
-  }
-    a { color: white;
-    text-decoration: none;
-    &:hover {color: rgb(223, 77, 138);}
-  }
 }
+
+/* Hide Hamburger */
+#hamnav label, #hamburger { display: none; }
+
+/* Horizontal Menu Items */
+#hamitems { display: flex; }
+#hamitems a {
+  width: 20%; /* 100% / 5 tabs = 20% */
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-family: "futura", sans-serif;
+}
+#header__logo {
+  display: inline-block;
+  width: 10%;
+  margin-right: 20%;
+  font-family: "futura", sans-serif;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 28px;
+  font-weight: 900px;
+  vertical-align: middle;
+}
+#hamitems a:hover {
+  color: rgb(223, 77, 138);
+}
+
+
+// header{
+//   background: black;
+//   color: white;
+//   font-size: 0;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//
+//   .header__logo {
+//     display: inline-block;
+//     width: 8%;
+//     margin-right: 20%;
+//     font-family: "futura", sans-serif;
+//     padding: 10px;
+//     box-sizing: border-box;
+//     font-size: 28px;
+//     font-weight: 900px;
+//     vertical-align: middle;
+//   }
+//
+//   .header__menu {
+//     width: 70%;
+//     display: inline-block;
+//     vertical-align: middle;
+//     font-size: 0;
+//   }
+//
+//   .header__menu-element {
+//     display: inline-block;
+//     width: 8%;
+//     font-size: 18px;
+//     text-align: center;
+//     padding-right: 15%;
+//     font-family: "futura", sans-serif;
+//   }
+//   //A MODIFIE//
+//   .header__jecoute{
+//     display: inline-block;
+//     width: 11%;
+//     font-size: 18px;
+//     text-align: center;
+//     padding-right: 15%;
+//     font-family: "futura", sans-serif;
+//   }
+//     a { color: white;
+//     text-decoration: none;
+//     &:hover {color: $pinkcolor;}
+//   }
+// }
 
 //PAGE INDEX//
 .index{
@@ -75,7 +125,7 @@ header{
   }
   .texte{
     width: 40%;
-    background-color: rgba(255,255,255,.6);
+    background-color: $opacity2;
     padding: 3%;
   }
 }
@@ -93,70 +143,86 @@ header{
     text-align: center;
     width: 30%;
     height: 30%;
-    background-color: rgba(255,255,255,.6);
+    background-color: $opacity2;
   }
 }
 
 //BIG BLACK JECOUTE//
-  .fond{
-    @include main;
-}
-  .container{
-    height: 100%;
-    width: 40%;
+.fond{
+    @include main2;
+
+  .image1{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 20%;
-  p{
-    @include font_titre;
-  }
-  .input{
-    width: 95%;
-    height: 20%;
-    padding: 0px 15px 0px 15px;
-    background: rgba(255,255,255,.9);
-    border: $bordecolorform;
-    border-bottom: none;
-    outline: none;
-    color: black;
-    font-family: $font;
-  }
-  textarea{
-    width: 95%;
-    height: 70%;
-    padding: 15px;
-    background: rgba(255,255,255,.9);
-    outline: none;
-    border: $bordecolorform;
-  }
-  .submit{
-    padding: 3%;
-    color: black;
-    font-family: $font;
-    background-color: white;
-    cursor: pointer;
-    border: $bordecolorform;
-    &:hover {background-color: $pinkcolor;}
-}
+    justify-content: flex-start;
+    align-items: flex-start;
+      img{
+        border: 5px solid white;
+        height: 20em;
+      }
+    }
+    .container{
+      height: 100%;
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 20%;
+    p{
+      @include font_titre;
+    }
+    .input{
+      width: 95%;
+      height: 20%;
+      padding: 0px 15px 0px 15px;
+      background: $opacity3;
+      border: $bordecolorform;
+      border-bottom: none;
+      outline: none;
+      color: black;
+      font-family: $font;
+    }
+    textarea{
+      width: 95%;
+      height: 70%;
+      padding: 15px;
+      background: $opacity3;
+      outline: none;
+      border: $bordecolorform;
+    }
+    .submit{
+      padding: 3%;
+      color: black;
+      font-family: $font;
+      background-color: white;
+      cursor: pointer;
+      border: $bordecolorform;
+      &:hover {background-color: $pinkcolor;}
+    }
+    }
+
+  .image2{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+      img{
+        border: 5px solid white;
+        height: 20em;
+      }
+    }
 }
 //BIG BLACK QUOI//
 #grid {
-  padding-top: 5%;
-  padding-left: 15%;
-  padding-right: 10%;
-  padding-bottom: 5%;
+  background-color: $opacity2;
   display: grid;
-  height: 100%;
+  height: 60%;
   width: 75%;
   grid-template-columns: 35% 30% 35%;
-  grid-template-rows: 20% 80%;
+  grid-template-rows: 100%;
   grid-template-areas:
-  "row1 row1 row1"
   "colonne1 colonne2 colonne3"
 }
-.quoi {
+.quoi{
   @include main;
   @include font;
 
@@ -168,8 +234,9 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 2%;
-
+    padding-top: 5%;
+    color: white;
+    text-decoration: none;
   }
 
 }
@@ -182,7 +249,7 @@ li{
 .titres{
   background-color: black;
   color: white;
-  font-size: 20px;
+  font-size: 2em;
   text-align: center;
 }
 .colonne1{
@@ -199,11 +266,12 @@ padding: O;
 
 //FOOTER//
 footer{
-  height: 10%;
+  margin-top: 10%;
+  height: 8%;
   width: 100%;
   bottom: 0;
   background-color: black;
-  position: absolute;
+  position: sticky;
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
@@ -219,12 +287,46 @@ footer{
 }
 }
 @media screen and (max-width: 767px){
+
   body{
+    padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
+    #hamnav{
+
+      position: absolute;
+    }
+    /* Show Hamburger Icon */
+    #hamnav label {
+      display: inline-block;
+      color: white;
+      background: $pinkcolor;
+      font-style: normal;
+      font-size: 1.2em;
+      padding: 10px;
+    }
+
+    /* Break down menu items into vertical */
+    #hamitems a {
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      border-top: 1px solid #333;
+      font-family: "futura", sans-serif;
+    }
+
+    /* Toggle Show/Hide Menu */
+    #hamitems { display: none; }
+    #hamnav input:checked ~ #hamitems { display: block; }
+
+
+
+
     //BIG BLACK COOK//
     .index{
       background-color: inherit;
@@ -250,7 +352,7 @@ footer{
         height: 30%;
       }
       .texte{
-        background-color: rgba(255,255,255,.9);
+        background-color: $opacity3;
         margin-top: 5%;
         width: 80%;
         padding: 2%;
@@ -267,6 +369,7 @@ footer{
         }
         #grid{
           display: block;
+          height: 73%;
 
         }
       }
@@ -283,7 +386,7 @@ footer{
         }
 
         .contact{
-          background-color: rgba(255,255,255,.9);
+          background-color: $opacity3;
           // margin-top: 5%;
           width: 80%;
           padding-top: 15%;
@@ -291,9 +394,34 @@ footer{
       }
       //BIG BLACK JECOUTE//
       .fond{
+        flex-direction: column;
+        justify-content: space-evenly;
         background-color: inherit;
+
+        .image1{
+          justify-content: center;
+          align-items: center;
+          width: 50%;
+          height: 25%;
+
+         img{
+           height: 80%;
+        }
+        }
+        .image2 {
+          justify-content: center;
+          align-items: center;
+          width: 50%;
+          height: 25%;
+          img{
+            height: 80%;
+          }
+        }
+
+
         .container{
           width: 70%;
+          padding-bottom: 55%;
           // justify-content: center;
           p{
             font-size: 100%;
@@ -307,6 +435,7 @@ footer{
       bottom: 0;
       height: 5%;
       width: 100%;
+      background-color: inherit;
     }
   }
 }
